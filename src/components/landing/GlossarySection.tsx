@@ -1,65 +1,55 @@
 const glossaryTerms = [
   {
     term: "Bolsa de leads",
-    definition: "Cantidad de contactos gratuitos que puedes recibir en un ciclo. Se consume conforme recibes leads y se recarga automáticamente tras 30 días de pausa.",
+    definition: "Cantidad de contactos gratuitos por ciclo. Se recarga tras 30 días de pausa.",
   },
   {
-    term: "Lead",
-    definition: "Contacto de un posible comprador o arrendatario interesado en tu propiedad. Cada lead incluye datos verificados de contacto.",
+    term: "Lead único",
+    definition: "Contacto verificado que cuenta una sola vez, sin importar cuántos canales use para contactarte.",
   },
   {
     term: "Anuncio pausado",
-    definition: "Estado en el que tu propiedad no está visible en búsquedas, pero puedes seguir editándola. Se activa cuando tu bolsa se agota o manualmente.",
+    definition: "Tu propiedad no aparece en búsquedas pero sigue siendo editable.",
   },
   {
     term: "Anuncio simple",
-    definition: "Nivel básico de visibilidad donde tu propiedad aparece en las búsquedas y consume leads de tu bolsa gratuita.",
+    definition: "Visibilidad básica que consume leads de tu bolsa gratuita.",
   },
   {
-    term: "Anuncio destacado",
-    definition: "Nivel premium donde tu propiedad aparece en segunda posición con un badge distintivo. Los leads recibidos no restan de tu bolsa gratuita.",
+    term: "Destacado",
+    definition: "Segunda posición con badge distintivo y leads que no restan de tu bolsa.",
   },
   {
-    term: "Anuncio Prime",
-    definition: "Máximo nivel de visibilidad. Tu propiedad aparece en primera posición con diseño llamativo y leads ilimitados.",
-  },
-  {
-    term: "Ciclo de visibilidad",
-    definition: "Período durante el cual tu bolsa de leads está activa. Cuando se agota, inicia una pausa de 30 días antes de la recarga.",
-  },
-  {
-    term: "Recarga automática",
-    definition: "Proceso por el cual tu bolsa de leads se restablece automáticamente después de completar el período de pausa de 30 días.",
+    term: "Prime",
+    definition: "Máxima visibilidad en primera posición con leads ilimitados.",
   },
 ];
 
 const GlossarySection = () => {
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+        <div className="text-center mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
             <span className="text-emerald-600">Glosario</span> de términos
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm">
-            Familiarízate con los conceptos clave de nuestra plataforma
-          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {glossaryTerms.map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-4 border border-gray-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-300"
+                className="group relative"
               >
-                <h3 className="font-semibold text-gray-900 mb-1.5 text-sm flex items-center gap-2">
-                  <span className="w-2 h-2 bg-emerald-500 rounded-full" />
+                <span className="inline-flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-3 py-1.5 text-sm font-medium text-gray-700 cursor-help hover:border-emerald-300 hover:bg-emerald-50 transition-colors">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
                   {item.term}
-                </h3>
-                <p className="text-gray-600 text-xs leading-relaxed">
+                </span>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 text-center z-10 shadow-lg">
                   {item.definition}
-                </p>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900" />
+                </div>
               </div>
             ))}
           </div>

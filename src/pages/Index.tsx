@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <StickyBanner cartUrl={CART_URL} />
-      <HeroSection cartUrl={CART_URL} />
+      <HeroSection cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
       <HowItWorksSection />
       <VisibilityLevels />
       <PremiumBenefits cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
