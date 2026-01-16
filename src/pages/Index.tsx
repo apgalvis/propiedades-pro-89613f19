@@ -2,6 +2,7 @@ import StickyBanner from "@/components/landing/StickyBanner";
 import HeroSection from "@/components/landing/HeroSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import VisibilityLevels from "@/components/landing/VisibilityLevels";
+import VisibilityCallout from "@/components/landing/VisibilityCallout";
 import PremiumPlansSection from "@/components/landing/PremiumPlansSection";
 import PremiumBenefits from "@/components/landing/PremiumBenefits";
 import FAQSection from "@/components/landing/FAQSection";
@@ -20,6 +21,7 @@ const Index = () => {
       <HeroSection cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
       <HowItWorksSection />
       <VisibilityLevels />
+      <VisibilityCallout />
       <PremiumPlansSection cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
       <PremiumBenefits cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
       <FAQSection />
