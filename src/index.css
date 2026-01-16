@@ -262,6 +262,6 @@ All colors MUST be HSL.
   }
 
   h1 {
-    font-family: 'Montserrat', sans-serif;
+    @apply font-montserrat;
   }
 }
