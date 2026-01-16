@@ -260,4 +260,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  h1 {
+    font-family: 'Montserrat', sans-serif;
+  }
 }
