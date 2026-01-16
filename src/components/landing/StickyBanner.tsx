@@ -56,7 +56,7 @@ const BannerButton = styled.a`
   color: white;
   font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 0.375rem;
+  border-radius: 100px;
   text-decoration: none;
   transition: background 0.2s ease;
 

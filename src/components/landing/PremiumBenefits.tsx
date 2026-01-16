@@ -215,7 +215,7 @@ const GradientButton = styled.a`
   background: linear-gradient(to right, #fbbf24, #f59e0b);
   color: #064e3b;
   font-weight: 700;
-  border-radius: 0.5rem;
+  border-radius: 100px;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
   transition: all 0.3s ease;
@@ -236,7 +236,7 @@ const OutlineButton = styled.a`
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   font-weight: 500;
-  border-radius: 0.5rem;
+  border-radius: 100px;
   text-decoration: none;
   transition: background 0.2s ease;
 

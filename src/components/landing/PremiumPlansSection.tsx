@@ -250,7 +250,7 @@ const PrimaryButton = styled.a`
   background: #059669;
   color: white;
   font-weight: 500;
-  border-radius: 0.5rem;
+  border-radius: 100px;
   text-decoration: none;
   transition: background 0.2s ease;
 
@@ -269,7 +269,7 @@ const SecondaryButton = styled.a`
   border: 1px solid #a7f3d0;
   color: #047857;
   font-weight: 500;
-  border-radius: 0.5rem;
+  border-radius: 100px;
   text-decoration: none;
   transition: background 0.2s ease;
 
