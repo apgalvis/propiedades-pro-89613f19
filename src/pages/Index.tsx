@@ -1,10 +1,10 @@
 import StickyBanner from "@/components/landing/StickyBanner";
 import HeroSection from "@/components/landing/HeroSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import LeadsDashboard from "@/components/landing/LeadsDashboard";
 import VisibilityLevels from "@/components/landing/VisibilityLevels";
 import PremiumBenefits from "@/components/landing/PremiumBenefits";
 import FAQSection from "@/components/landing/FAQSection";
+import GlossarySection from "@/components/landing/GlossarySection";
 import FinalCTA from "@/components/landing/FinalCTA";
 import Footer from "@/components/landing/Footer";
 
@@ -18,10 +18,10 @@ const Index = () => {
       <StickyBanner cartUrl={CART_URL} />
       <HeroSection cartUrl={CART_URL} />
       <HowItWorksSection />
-      <LeadsDashboard />
       <VisibilityLevels />
       <PremiumBenefits cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
       <FAQSection />
+      <GlossarySection />
       <FinalCTA cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
       <Footer />
     </div>
