@@ -10,9 +10,7 @@ const levels = [
     color: "from-gray-200 to-gray-300",
     iconBg: "bg-gray-100",
     iconColor: "text-gray-400",
-    glowColor: "",
-    height: "h-20",
-    opacity: "opacity-50",
+    height: "h-24",
   },
   {
     id: "simple",
@@ -23,8 +21,7 @@ const levels = [
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
     glowColor: "shadow-emerald-200/50",
-    height: "h-32",
-    opacity: "opacity-75",
+    height: "h-36",
   },
   {
     id: "featured",
@@ -35,9 +32,7 @@ const levels = [
     iconBg: "bg-amber-100",
     iconColor: "text-amber-600",
     glowColor: "shadow-amber-300/60",
-    height: "h-48",
-    opacity: "opacity-90",
-    isPremium: true,
+    height: "h-52",
   },
   {
     id: "prime",
@@ -48,9 +43,31 @@ const levels = [
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
     glowColor: "shadow-blue-400/60",
-    height: "h-64",
-    opacity: "opacity-100",
-    isPremium: true,
+    height: "h-72",
+  },
+];
+
+const plans = [
+  {
+    name: "Plan Gratis",
+    color: "bg-emerald-500",
+    textColor: "text-emerald-700",
+    range: [0, 1], // Covers Pausado and Anuncio Simple
+    arrowEnd: 1,
+  },
+  {
+    name: "Plan Pro",
+    color: "bg-orange-500",
+    textColor: "text-orange-700",
+    range: [0, 2], // Covers up to Destacado
+    arrowEnd: 2,
+  },
+  {
+    name: "Plan Premium",
+    color: "bg-blue-600",
+    textColor: "text-blue-700",
+    range: [0, 3], // Covers all including Prime
+    arrowEnd: 3,
   },
 ];
 
@@ -88,86 +105,134 @@ const VisibilityLevels = () => {
             Mientras más alto, <span className="text-primary">más te ven</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
-            Cada nivel te acerca más a tus clientes potenciales
+            Cada plan desbloquea más niveles de exposición para tu anuncio
           </p>
         </div>
 
-        {/* Staircase Illustration */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Base line */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-border to-transparent" />
-          
-          {/* Visibility arrow on the side */}
-          <div 
-            className={`absolute -left-4 md:left-0 top-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-1000 ${
-              isVisible ? 'opacity-100' : 'opacity-0 -translate-x-4'
-            }`}
-          >
-            <div className="w-0.5 h-32 md:h-48 bg-gradient-to-t from-gray-300 via-primary/50 to-primary rounded-full" />
-            <span className="text-[10px] md:text-xs text-muted-foreground mt-2 writing-mode-vertical rotate-180" style={{ writingMode: 'vertical-rl' }}>
-              + Visibilidad
-            </span>
-          </div>
-
-          {/* Steps container */}
-          <div className="flex items-end justify-center gap-3 md:gap-6 pt-8 pb-4 pl-8 md:pl-16">
-            {levels.map((level, index) => (
-              <div
-                key={level.id}
-                className={`flex flex-col items-center transition-all duration-700 ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                {/* Step pillar */}
-                <div 
-                  className={`relative w-16 sm:w-20 md:w-28 ${level.height} rounded-t-2xl bg-gradient-to-t ${level.color} ${level.glowColor} shadow-xl transition-all duration-500 flex flex-col items-center justify-start pt-3 md:pt-4 group hover:scale-105 hover:-translate-y-2`}
+        {/* Main Illustration Container */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Columns and Arrows Layout */}
+          <div className="flex flex-col">
+            {/* Columns Row */}
+            <div className="flex items-end justify-center gap-4 md:gap-8 pt-8 pb-6">
+              {levels.map((level, index) => (
+                <div
+                  key={level.id}
+                  className={`flex flex-col items-center transition-all duration-700 ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
                 >
-                  {/* Premium glow effect */}
-                  {level.isPremium && (
-                    <div className={`absolute inset-0 rounded-t-2xl bg-gradient-to-t ${level.color} blur-xl opacity-40 -z-10 scale-110`} />
-                  )}
-                  
-                  {/* Icon container */}
+                  {/* Column pillar */}
                   <div 
-                    className={`w-10 h-10 md:w-14 md:h-14 rounded-xl ${level.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}
+                    className={`relative w-16 sm:w-20 md:w-28 ${level.height} rounded-t-2xl bg-gradient-to-t ${level.color} ${level.glowColor || ''} shadow-xl transition-all duration-500 flex flex-col items-center justify-start pt-3 md:pt-4 group hover:scale-105 hover:-translate-y-2`}
                   >
-                    <level.icon className={`w-5 h-5 md:w-7 md:h-7 ${level.iconColor}`} />
+                    {/* Glow effect for premium levels */}
+                    {(level.id === 'featured' || level.id === 'prime') && (
+                      <div className={`absolute inset-0 rounded-t-2xl bg-gradient-to-t ${level.color} blur-xl opacity-30 -z-10 scale-110`} />
+                    )}
+                    
+                    {/* Icon container */}
+                    <div 
+                      className={`w-10 h-10 md:w-14 md:h-14 rounded-xl ${level.iconBg} flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110`}
+                    >
+                      <level.icon className={`w-5 h-5 md:w-7 md:h-7 ${level.iconColor}`} />
+                    </div>
+
+                    {/* Light rays for Prime */}
+                    {level.id === 'prime' && isVisible && (
+                      <>
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-1 h-4 bg-gradient-to-t from-blue-400 to-transparent rounded-full animate-pulse" />
+                        <div className="absolute -top-4 left-1/4 w-0.5 h-3 bg-gradient-to-t from-blue-300 to-transparent rounded-full animate-pulse" style={{ animationDelay: '200ms' }} />
+                        <div className="absolute -top-4 right-1/4 w-0.5 h-3 bg-gradient-to-t from-blue-300 to-transparent rounded-full animate-pulse" style={{ animationDelay: '400ms' }} />
+                      </>
+                    )}
                   </div>
 
-                  {/* Premium badge */}
-                  {level.isPremium && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md text-foreground">
-                      PREMIUM
-                    </span>
-                  )}
-
-                  {/* Light rays for Prime */}
-                  {level.id === 'prime' && isVisible && (
-                    <>
-                      <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-1 h-4 bg-gradient-to-t from-blue-400 to-transparent rounded-full animate-pulse" />
-                      <div className="absolute -top-4 left-1/4 w-0.5 h-3 bg-gradient-to-t from-blue-300 to-transparent rounded-full animate-pulse" style={{ animationDelay: '200ms' }} />
-                      <div className="absolute -top-4 right-1/4 w-0.5 h-3 bg-gradient-to-t from-blue-300 to-transparent rounded-full animate-pulse" style={{ animationDelay: '400ms' }} />
-                    </>
-                  )}
+                  {/* Label below column */}
+                  <div className="mt-3 md:mt-4 text-center">
+                    <h3 className="text-xs sm:text-sm md:text-base font-bold text-foreground whitespace-nowrap">
+                      {level.name}
+                    </h3>
+                    <p className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 max-w-[80px] md:max-w-[100px]">
+                      {level.tagline}
+                    </p>
+                  </div>
                 </div>
+              ))}
+            </div>
 
-                {/* Label below step */}
-                <div className="mt-3 md:mt-4 text-center">
-                  <h3 className="text-xs sm:text-sm md:text-base font-bold text-foreground whitespace-nowrap">
-                    {level.name}
-                  </h3>
-                  <p className="text-[9px] sm:text-[10px] md:text-xs text-muted-foreground mt-0.5 max-w-[80px] md:max-w-[100px]">
-                    {level.tagline}
-                  </p>
-                </div>
+            {/* Arrows Section */}
+            <div 
+              className={`relative mt-8 md:mt-12 space-y-3 md:space-y-4 transition-all duration-700 delay-500 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              {plans.map((plan, planIndex) => {
+                // Calculate arrow width based on levels covered
+                const widthPercentages = ['32%', '58%', '100%'];
+                const arrowWidth = widthPercentages[planIndex];
+                
+                return (
+                  <div 
+                    key={plan.name}
+                    className="relative flex items-center"
+                    style={{ 
+                      transitionDelay: `${600 + planIndex * 150}ms`,
+                    }}
+                  >
+                    {/* Arrow body */}
+                    <div 
+                      className={`relative h-8 md:h-10 ${plan.color} rounded-l-lg flex items-center transition-all duration-700`}
+                      style={{ 
+                        width: arrowWidth,
+                        opacity: isVisible ? 1 : 0,
+                        transform: isVisible ? 'scaleX(1)' : 'scaleX(0)',
+                        transformOrigin: 'left',
+                        transitionDelay: `${600 + planIndex * 200}ms`,
+                      }}
+                    >
+                      {/* Plan name inside arrow */}
+                      <span className="text-white font-semibold text-xs md:text-sm pl-3 md:pl-4 whitespace-nowrap">
+                        {plan.name}
+                      </span>
+                      
+                      {/* Arrow head */}
+                      <div 
+                        className={`absolute right-0 translate-x-full w-0 h-0 
+                          border-t-[16px] md:border-t-[20px] border-t-transparent 
+                          border-b-[16px] md:border-b-[20px] border-b-transparent 
+                          border-l-[12px] md:border-l-[16px] ${
+                            plan.name === 'Plan Gratis' ? 'border-l-emerald-500' :
+                            plan.name === 'Plan Pro' ? 'border-l-orange-500' : 'border-l-blue-600'
+                          }`}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Group Labels */}
+            <div 
+              className={`flex justify-center gap-4 md:gap-8 mt-10 md:mt-14 transition-all duration-700 delay-1000 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                <span className="text-xs md:text-sm text-muted-foreground">Niveles básicos</span>
               </div>
-            ))}
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-gradient-to-r from-amber-500 to-blue-600" />
+                <span className="text-xs md:text-sm text-muted-foreground">Niveles premium</span>
+              </div>
+            </div>
           </div>
 
-          {/* Animated indicator */}
+          {/* Exposure indicator */}
           <div 
-            className={`absolute bottom-20 md:bottom-28 right-4 md:right-8 transition-all duration-1000 delay-700 ${
+            className={`absolute top-8 right-0 md:right-4 transition-all duration-1000 delay-700 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >
@@ -178,15 +243,6 @@ const VisibilityLevels = () => {
             </div>
           </div>
         </div>
-
-        {/* Bottom message */}
-        <p 
-          className={`text-center text-xs md:text-sm text-muted-foreground mt-10 md:mt-12 transition-all duration-700 delay-500 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-        >
-          ⭐ Los niveles <span className="font-semibold text-amber-600">Destacado</span> y <span className="font-semibold text-blue-600">Prime</span> están disponibles en los planes de pago
-        </p>
       </div>
     </section>
   );
