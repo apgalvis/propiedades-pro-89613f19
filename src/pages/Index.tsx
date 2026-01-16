@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import StickyBanner from "@/components/landing/StickyBanner";
+import HeroSection from "@/components/landing/HeroSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import LeadsDashboard from "@/components/landing/LeadsDashboard";
+import VisibilityLevels from "@/components/landing/VisibilityLevels";
+import PremiumBenefits from "@/components/landing/PremiumBenefits";
+import FAQSection from "@/components/landing/FAQSection";
+import FinalCTA from "@/components/landing/FinalCTA";
+import Footer from "@/components/landing/Footer";
+
+// Configuración de URLs externas
+const CART_URL = "https://propiedades.com/carrito"; // Cambiar por la URL real del carrito
+const WHATSAPP_URL = "https://wa.me/5215512345678?text=Hola,%20quiero%20cotizar%20un%20plan%20Premium"; // Cambiar por el número real
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <StickyBanner cartUrl={CART_URL} />
+      <HeroSection cartUrl={CART_URL} />
+      <HowItWorksSection />
+      <LeadsDashboard />
+      <VisibilityLevels />
+      <PremiumBenefits cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
+      <FAQSection />
+      <FinalCTA cartUrl={CART_URL} whatsappUrl={WHATSAPP_URL} />
+      <Footer />
     </div>
   );
 };
