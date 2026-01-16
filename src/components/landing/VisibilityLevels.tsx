@@ -77,16 +77,12 @@ const VisibilityLevels = () => {
     <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-            <TrendingUp className="w-4 h-4" />
-            Niveles de visibilidad
-          </div>
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3">
-            Mientras más alto, <span className="text-primary">más te ven</span>
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            Niveles de <span className="text-emerald-600">visibilidad</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
-            Cada plan desbloquea más niveles de exposición para tu anuncio
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm">
+            Mientras más alto, más te ven. Cada plan desbloquea más niveles de exposición
           </p>
         </div>
 
