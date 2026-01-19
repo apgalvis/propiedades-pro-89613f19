@@ -339,7 +339,7 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
               </ProgressBar>
             </div>
           </ComparisonBars>
-          <ComparisonResult>Mayor visibilidad frente a la versión gratuita</ComparisonResult>
+          <ComparisonResult>Visibilidad continua frente a la versión gratuita</ComparisonResult>
           <Microcopy>La visibilidad puede variar según zona, categoría y demanda del mercado.</Microcopy>
         </ComparisonCard>
 
