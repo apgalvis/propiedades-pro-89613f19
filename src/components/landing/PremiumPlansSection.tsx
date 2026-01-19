@@ -9,12 +9,12 @@ interface PremiumPlansSectionProps {
 const features = [
   { name: "Publicar propiedades", free: true, pro: true, proPlus: true },
   { name: "Editar anuncios en cualquier momento", free: true, pro: true, proPlus: true },
-  { name: "Anuncios siempre visibles", free: false, pro: true, proPlus: true },
-  { name: "Sin pausas de 30 días", free: false, pro: true, proPlus: true },
-  { name: "Leads por correo ilimitados", free: false, pro: true, proPlus: true },
-  { name: "Leads por WhatsApp ilimitados", free: false, pro: true, proPlus: true },
-  { name: "Destacados incluidos", free: false, pro: false, proPlus: true },
-  { name: "Mayor posición en búsquedas", free: false, pro: false, proPlus: true },
+  { name: "Visibilidad continua del anuncio", free: false, pro: true, proPlus: true },
+  { name: "Sin pausas de 30 días del ciclo gratuito", free: false, pro: true, proPlus: true },
+  { name: "Contactos por correo y panel de anunciantes sin tope mensual", free: false, pro: true, proPlus: true },
+  { name: "Contactos por WhatsApp sin tope mensual", free: false, pro: true, proPlus: true, highlight: true },
+  { name: "Destacados incluidos (solo ProMax)", free: false, pro: false, proPlus: true },
+  { name: "Prioridad visual en resultados de búsqueda", free: false, pro: false, proPlus: true },
 ];
 
 const SectionWrapper = styled.section`
@@ -185,18 +185,34 @@ const TableRow = styled.div<{ $isLast?: boolean }>`
   border-bottom: ${props => props.$isLast ? 'none' : '1px solid #f3f4f6'};
 `;
 
-const TableCell = styled.div<{ $highlight?: boolean }>`
+const TableCell = styled.div<{ $highlight?: boolean; $isHighlighted?: boolean }>`
   padding: 0.75rem;
   font-size: 0.75rem;
-  color: #374151;
+  color: ${props => props.$isHighlighted ? '#047857' : '#374151'};
+  font-weight: ${props => props.$isHighlighted ? '600' : '400'};
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${props => props.$highlight ? 'rgba(236, 253, 245, 0.5)' : 'transparent'};
+  gap: 0.5rem;
+  background: ${props => {
+    if (props.$isHighlighted) return '#ecfdf5';
+    if (props.$highlight) return 'rgba(236, 253, 245, 0.5)';
+    return 'transparent';
+  }};
   
   &:first-child {
     justify-content: flex-start;
   }
+`;
+
+const GiftBadge = styled.span`
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 9999px;
+  white-space: nowrap;
 `;
 
 const BenefitsRow = styled.div`
@@ -340,7 +356,10 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
           
           {features.map((feature, index) => (
             <TableRow key={index} $isLast={index === features.length - 1}>
-              <TableCell>{feature.name}</TableCell>
+              <TableCell $isHighlighted={feature.highlight}>
+                {feature.name}
+                {feature.highlight && <GiftBadge>🎁 Regalo</GiftBadge>}
+              </TableCell>
               <TableCell>
                 {feature.free ? <Check size={16} color="#9ca3af" /> : <X size={16} color="#d1d5db" />}
               </TableCell>
