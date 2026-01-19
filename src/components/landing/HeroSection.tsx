@@ -215,23 +215,20 @@ const HeroSection = ({ cartUrl, whatsappUrl }: HeroSectionProps) => {
       <HeroContent>
         <HeroTitle>
           <TitleLine>
-            Publica <HighlightGreen>
-              gratis
+            Convierte tu anuncio en una <HighlightGreen>
+              fuente constante
               <Underline />
-            </HighlightGreen> tus inmuebles
-          </TitleLine>
-          <TitleLine $delay="150ms">
-            Recibe contactos <HighlightAmber>verificados</HighlightAmber> y <HighlightAmber>únicos</HighlightAmber>
+            </HighlightGreen> de contactos
           </TitleLine>
         </HeroTitle>
 
         <Subtitle>
-          Publica sin límite, activa visibilidad con tu bolsa de leads gratuita y escala a premium cuando quieras más exposición.
+          Con el Plan Pro tu inmueble no se pausa y mantiene visibilidad continua.
         </Subtitle>
 
         <CTAWrapper>
           <PrimaryButton href={cartUrl} target="_blank" rel="noopener noreferrer">
-            Ver planes y precios
+            Cambiar a Pro
             <span>→</span>
           </PrimaryButton>
           <SecondaryButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">
