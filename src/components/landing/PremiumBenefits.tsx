@@ -235,18 +235,19 @@ const GradientButton = styled.a`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.875rem 1.5rem;
-  background: linear-gradient(to right, #fbbf24, #f59e0b);
-  color: #064e3b;
+  background: #10B981;
+  color: white;
   font-weight: 700;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
   transition: all 0.3s ease;
 
   &:hover {
-    background: linear-gradient(to right, #f59e0b, #d97706);
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);
+    background: #059669;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
   }
 `;
 
