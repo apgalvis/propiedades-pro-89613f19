@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Infinity, Eye, Trophy, Smartphone, BarChart3, Headphones, MessageCircle } from "lucide-react";
+import { Infinity, Eye, Trophy, Smartphone, BarChart3, Headphones, MessageCircle, ShoppingCart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 interface PremiumBenefitsProps {
@@ -318,6 +318,7 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
 
         <CTAWrapper $isVisible={isVisible}>
           <GradientButton href={cartUrl} target="_blank" rel="noopener noreferrer">
+            <ShoppingCart size={16} />
             Cambiar a Pro
           </GradientButton>
           <OutlineButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">

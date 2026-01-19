@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Check, X, Crown, Shield, Eye, MessageCircle, TrendingUp, Zap } from "lucide-react";
+import { Check, X, Crown, Shield, Eye, MessageCircle, TrendingUp, Zap, ShoppingCart } from "lucide-react";
 
 interface PremiumPlansSectionProps {
   cartUrl: string;
@@ -377,6 +377,7 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
 
         <CTAWrapper>
           <PrimaryButton href={cartUrl} target="_blank" rel="noopener noreferrer">
+            <ShoppingCart size={16} />
             Cambiar a Pro
           </PrimaryButton>
           <SecondaryButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">

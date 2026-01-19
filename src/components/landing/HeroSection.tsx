@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ShoppingCart } from "lucide-react";
 
 interface HeroSectionProps {
   cartUrl: string;
@@ -228,8 +228,8 @@ const HeroSection = ({ cartUrl, whatsappUrl }: HeroSectionProps) => {
 
         <CTAWrapper>
           <PrimaryButton href={cartUrl} target="_blank" rel="noopener noreferrer">
+            <ShoppingCart size={16} />
             Cambiar a Pro
-            <span>→</span>
           </PrimaryButton>
           <SecondaryButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
