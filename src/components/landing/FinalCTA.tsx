@@ -160,10 +160,10 @@ const FinalCTA = ({ cartUrl, whatsappUrl }: FinalCTAProps) => {
       <Container>
         <Content>
           <Title>
-            Da el salto a <Highlight>visibilidad continua</Highlight>
+            ¿Listo para pasar a <Highlight>visibilidad continua</Highlight>?
           </Title>
           <Subtitle>
-            Únete a miles de agentes que ya multiplicaron sus resultados con Premium
+            Con el Plan Pro, tu anuncio no se pausa y mantiene visibilidad continua.
           </Subtitle>
 
           <CTAWrapper>
@@ -182,11 +182,11 @@ const FinalCTA = ({ cartUrl, whatsappUrl }: FinalCTAProps) => {
           <TrustSignals>
             <TrustItem>
               <CheckCircle size={14} color="#34d399" />
-              Sin permanencia
+              Pagos seguros y protegidos
             </TrustItem>
             <TrustItem>
               <CheckCircle size={14} color="#34d399" />
-              Cancela cuando quieras
+              Múltiples métodos de pago
             </TrustItem>
             <TrustItem>
               <CheckCircle size={14} color="#34d399" />
