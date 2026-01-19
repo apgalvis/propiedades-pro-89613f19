@@ -1,89 +1,120 @@
 import styled from 'styled-components';
 import { useState } from "react";
-import { HelpCircle, Package, CreditCard, Zap, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const faqCategories = [
   {
-    id: "general",
-    label: "General",
-    icon: HelpCircle,
+    id: "gratuito",
+    label: "Modelo gratuito",
+    color: "#10B981",
     faqs: [
       {
-        question: "¿Cómo funciona la publicación gratuita?",
-        answer: "Puedes publicar propiedades sin costo. Cada propiedad activa consume leads de tu bolsa gratuita cuando recibes contactos. Tus anuncios permanecen publicados y editables incluso cuando están pausados.",
+        question: "¿Cómo funciona la versión gratuita?",
+        answer: "La versión gratuita se activa automáticamente al publicar tu propiedad. Tu anuncio entra en un ciclo de visibilidad que consume una bolsa gratuita de leads. Al agotarse, el anuncio entra en una pausa temporal y el ciclo se reactiva automáticamente.",
       },
       {
-        question: "¿Qué es un lead único?",
-        answer: "Un lead único es un contacto verificado que cuenta una sola vez, sin importar cuántos canales use para contactarte (correo, WhatsApp, teléfono). Esto te protege de consumir múltiples leads por el mismo interesado.",
+        question: "¿La visibilidad gratuita se activa automáticamente?",
+        answer: "Sí. Al publicar tu propiedad, la visibilidad gratuita se activa de forma automática sin necesidad de configuración adicional.",
       },
       {
-        question: "¿Puedo seguir publicando y editando durante la pausa?",
-        answer: "¡Sí! Durante la pausa puedes seguir publicando nuevas propiedades y editando las existentes. Simplemente no estarán visibles en búsquedas hasta que tu bolsa se recargue o actives un plan premium.",
+        question: "¿Qué es la bolsa gratuita de leads?",
+        answer: "Es una cantidad limitada de contactos asignada automáticamente en la versión gratuita. Mientras haya disponibilidad, tu anuncio se muestra y puede recibir contactos.",
       },
       {
-        question: "¿Cuántas propiedades puedo publicar?",
-        answer: "No hay límite en la cantidad de propiedades que puedes publicar. La limitación está en la visibilidad: la bolsa gratuita tiene leads limitados, mientras que los planes premium ofrecen visibilidad ilimitada.",
+        question: "¿El modelo gratuito funciona por ciclos?",
+        answer: "Sí. La versión gratuita opera en ciclos de visibilidad. Cuando se agota la bolsa de leads, el anuncio entra en pausa temporal y luego se reactiva automáticamente.",
       },
     ],
   },
   {
-    id: "bolsa",
-    label: "Plan gratuito",
-    icon: Package,
+    id: "planes",
+    label: "Plan Pro y ProMax",
+    color: "#F59E0B",
     faqs: [
       {
-        question: "¿Qué pasa si se agota mi bolsa de leads?",
-        answer: "Cuando tu bolsa se agota, tus propiedades entran en pausa de 30 días. No aparecerán en búsquedas pero seguirán siendo editables. Después de 30 días, tu bolsa se recarga automáticamente.",
+        question: "¿Qué cambia al pasar al Plan Pro?",
+        answer: "Con el Plan Pro, tu anuncio mantiene visibilidad continua sin entrar en las pausas del ciclo gratuito. Además, puedes recibir contactos por correo y WhatsApp sin tope mensual.",
       },
       {
-        question: "¿Los leads que no uso desaparecen?",
-        answer: "No, los leads de tu bolsa no tienen fecha de expiración dentro del ciclo activo. Solo se consumen cuando recibes contactos reales. Al terminar el ciclo y entrar en pausa, el contador se reinicia.",
+        question: "¿Cuál es la diferencia entre Pro y ProMax?",
+        answer: "Pro incluye visibilidad continua sin pausas. ProMax incluye todas las ventajas de Pro más prioridad visual adicional mediante destacados.",
       },
       {
-        question: "¿Cómo recupero visibilidad antes de la recarga?",
-        answer: "Puedes activar un plan Premium en cualquier momento para recuperar visibilidad inmediata con leads ilimitados y sin pausas de 30 días.",
+        question: "¿El Plan Pro garantiza contactos?",
+        answer: "No. El Plan Pro garantiza visibilidad continua del anuncio. La recepción de contactos depende de factores como la demanda, la zona y la categoría del inmueble.",
       },
       {
-        question: "¿Cómo se consume mi bolsa de leads?",
-        answer: "Cada vez que un usuario interesado te contacta a través de tus propiedades activas, se descuenta un lead de tu bolsa. Los contactos duplicados (mismo usuario, diferentes canales) cuentan como uno solo.",
+        question: "¿Puedo cambiar de plan cuando quiera?",
+        answer: "Sí. Puedes cambiar de plan en cualquier momento. El cambio se aplica de forma inmediata y solo pagas la diferencia proporcional.",
       },
     ],
   },
   {
-    id: "premium",
-    label: "Planes Premium",
-    icon: Zap,
+    id: "contactos",
+    label: "Contactos y visibilidad",
+    color: "#3B82F6",
     faqs: [
       {
-        question: "¿Qué incluye el Plan Pro?",
-        answer: "Plan Pro incluye: anuncios siempre visibles sin pausas, leads por correo y WhatsApp ilimitados, y visibilidad continua 24/7 en el portal.",
+        question: "¿Qué significa visibilidad continua?",
+        answer: "Significa que tu anuncio permanece activo y visible sin pausas del ciclo gratuito. Esta condición está incluida en el Plan Pro y ProMax.",
       },
       {
-        question: "¿Qué son los Destacados?",
-        answer: "Los Destacados son posiciones premium que colocan tus anuncios por encima de los simples en los resultados de búsqueda. Incluyen un badge distintivo que genera mayor confianza y más clics.",
+        question: "¿Los contactos son únicos?",
+        answer: "Sí. Cada contacto verificado cuenta una sola vez, sin importar cuántos canales use para contactarte (correo, WhatsApp, teléfono).",
       },
       {
-        question: "¿Qué diferencia hay entre Destacado y Prime?",
-        answer: "Destacado aparece en segunda posición con badge distintivo. Prime es la máxima visibilidad: primera posición, diseño más llamativo y prioridad absoluta en resultados.",
+        question: "¿Qué canales de contacto incluye cada plan?",
+        answer: "La versión gratuita incluye contactos por correo electrónico. Los planes Pro y ProMax incluyen además contactos por WhatsApp sin tope mensual.",
+      },
+      {
+        question: "¿La visibilidad garantiza contactos?",
+        answer: "No. La visibilidad facilita que tu anuncio sea visto, pero la recepción de contactos depende de la demanda del mercado, la zona y las características de la propiedad.",
+      },
+    ],
+  },
+  {
+    id: "pausas",
+    label: "Pausas y ciclos",
+    color: "#8B5CF6",
+    faqs: [
+      {
+        question: "¿Por qué mi anuncio entra en pausa?",
+        answer: "Cuando se agota la bolsa gratuita de leads, el anuncio entra en una pausa temporal como parte del ciclo del modelo gratuito.",
+      },
+      {
+        question: "¿Cuánto dura la pausa del ciclo gratuito?",
+        answer: "La pausa dura 30 días. Después de este período, tu bolsa de leads se recarga automáticamente y el anuncio vuelve a estar visible.",
+      },
+      {
+        question: "¿Puedo seguir editando mi anuncio durante la pausa?",
+        answer: "Sí. Durante la pausa puedes seguir editando tu anuncio normalmente. Solo deja de aparecer en las búsquedas hasta que el ciclo se reactive.",
+      },
+      {
+        question: "¿Cómo evito las pausas?",
+        answer: "Al cambiar al Plan Pro, tu anuncio mantiene visibilidad continua y no entra en las pausas del ciclo gratuito.",
       },
     ],
   },
   {
     id: "pagos",
-    label: "Pagos",
-    icon: CreditCard,
+    label: "Pagos y facturación",
+    color: "#F97316",
     faqs: [
       {
         question: "¿Qué métodos de pago aceptan?",
-        answer: "Aceptamos tarjeta de crédito, débito, transferencia bancaria y PayPal. También ofrecemos opciones de pago en mensualidades para planes de 3 y 6 meses.",
+        answer: "Aceptamos tarjeta de crédito, débito, transferencia bancaria y otros métodos de pago electrónicos disponibles en tu región.",
       },
       {
-        question: "¿Puedo cancelar mi plan en cualquier momento?",
-        answer: "Sí, puedes cancelar cuando quieras. Tu plan seguirá activo hasta el final del período pagado y no se realizarán cobros adicionales.",
+        question: "¿Mis pagos son seguros?",
+        answer: "Sí. Todos los pagos se procesan a través de plataformas seguras y protegidas con encriptación de datos.",
       },
       {
-        question: "¿Hay reembolsos?",
-        answer: "Ofrecemos reembolso proporcional dentro de los primeros 7 días si no estás satisfecho con el servicio. Después de este período, puedes cancelar pero el plan seguirá activo hasta su vencimiento.",
+        question: "¿La suscripción tiene permanencia?",
+        answer: "No. No hay permanencia obligatoria. Puedes cancelar tu suscripción en cualquier momento sin penalizaciones.",
+      },
+      {
+        question: "¿Puedo cancelar cuando quiera?",
+        answer: "Sí. Puedes cancelar tu suscripción en cualquier momento. No hay permanencia obligatoria.",
       },
     ],
   },
@@ -135,7 +166,7 @@ const CategoryTabs = styled.div`
   margin-bottom: 2rem;
 `;
 
-const CategoryTab = styled.button<{ $active: boolean }>`
+const CategoryTab = styled.button<{ $active: boolean; $color: string }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -146,13 +177,20 @@ const CategoryTab = styled.button<{ $active: boolean }>`
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  background: ${props => props.$active ? '#059669' : '#f3f4f6'};
+  background: ${props => props.$active ? props.$color : '#f3f4f6'};
   color: ${props => props.$active ? 'white' : '#4b5563'};
   box-shadow: ${props => props.$active ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none'};
 
   &:hover {
-    background: ${props => props.$active ? '#059669' : '#e5e7eb'};
+    background: ${props => props.$active ? props.$color : '#e5e7eb'};
   }
+`;
+
+const CategoryDot = styled.span<{ $color: string; $active: boolean }>`
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: ${props => props.$active ? 'white' : props.$color};
 `;
 
 const AccordionWrapper = styled.div`
@@ -229,7 +267,7 @@ const HelpNote = styled.p`
 `;
 
 const FAQSection = () => {
-  const [activeCategory, setActiveCategory] = useState("general");
+  const [activeCategory, setActiveCategory] = useState("gratuito");
   const [openItem, setOpenItem] = useState<number | null>(null);
   const currentCategory = faqCategories.find((cat) => cat.id === activeCategory);
 
@@ -250,22 +288,20 @@ const FAQSection = () => {
         </Header>
 
         <CategoryTabs>
-          {faqCategories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <CategoryTab
-                key={category.id}
-                $active={activeCategory === category.id}
-                onClick={() => {
-                  setActiveCategory(category.id);
-                  setOpenItem(null);
-                }}
-              >
-                <Icon size={16} />
-                {category.label}
-              </CategoryTab>
-            );
-          })}
+          {faqCategories.map((category) => (
+            <CategoryTab
+              key={category.id}
+              $active={activeCategory === category.id}
+              $color={category.color}
+              onClick={() => {
+                setActiveCategory(category.id);
+                setOpenItem(null);
+              }}
+            >
+              <CategoryDot $color={category.color} $active={activeCategory === category.id} />
+              {category.label}
+            </CategoryTab>
+          ))}
         </CategoryTabs>
 
         <AccordionWrapper>

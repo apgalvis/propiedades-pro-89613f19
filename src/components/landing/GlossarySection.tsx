@@ -3,11 +3,19 @@ import styled from 'styled-components';
 const glossaryTerms = [
   {
     term: "Bolsa de leads",
-    definition: "Cantidad de contactos gratuitos por ciclo. Se recarga tras 30 días de pausa.",
+    definition: "Cantidad limitada de contactos asignada automáticamente en la versión gratuita.",
   },
   {
     term: "Lead único",
-    definition: "Contacto verificado que cuenta una sola vez, sin importar cuántos canales use para contactarte.",
+    definition: "Contacto verificado que cuenta una sola vez, sin importar el canal utilizado.",
+  },
+  {
+    term: "Visibilidad continua",
+    definition: "Tu anuncio permanece activo y visible sin pausas del ciclo gratuito.",
+  },
+  {
+    term: "Ciclo gratuito",
+    definition: "Período de visibilidad activa seguido de una pausa temporal de 30 días.",
   },
   {
     term: "Anuncio pausado",
@@ -15,15 +23,15 @@ const glossaryTerms = [
   },
   {
     term: "Anuncio simple",
-    definition: "Visibilidad básica que consume leads de tu bolsa gratuita.",
+    definition: "Visibilidad básica disponible en la versión gratuita y Plan Pro.",
   },
   {
     term: "Destacado",
-    definition: "Segunda posición con badge distintivo y leads que no restan de tu bolsa.",
+    definition: "Posición premium con prioridad visual en resultados de búsqueda.",
   },
   {
-    term: "Prime",
-    definition: "Máxima visibilidad en primera posición con leads ilimitados.",
+    term: "Pro / ProMax",
+    definition: "Planes de pago con visibilidad continua. ProMax incluye destacados.",
   },
 ];
 
@@ -120,7 +128,7 @@ const Tooltip = styled.div`
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s ease;
-  width: 12rem;
+  width: 14rem;
   text-align: center;
   z-index: 10;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
