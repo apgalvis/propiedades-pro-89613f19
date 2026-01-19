@@ -287,7 +287,7 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
             Compara y elige tu <Highlight>nivel de visibilidad</Highlight>
           </Title>
           <Subtitle>
-            Desde publicación gratuita hasta máxima exposición premium
+            De publicación gratuita a visibilidad continua y máxima exposición
           </Subtitle>
         </Header>
 
@@ -301,7 +301,7 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
             <ProgressBar>
               <ProgressFill $width="25%" />
             </ProgressBar>
-            <ProgressLabel>Visibilidad limitada</ProgressLabel>
+            <ProgressLabel>Visibilidad limitada por ciclo gratuito</ProgressLabel>
           </PlanCard>
 
           <PlanCard $variant="pro">
@@ -309,11 +309,11 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
               <Crown size={24} color="#059669" />
             </PlanIconWrapper>
             <PlanTitle>Plan Pro</PlanTitle>
-            <PlanSubtitle $variant="pro">Visibilidad continua</PlanSubtitle>
+            <PlanSubtitle $variant="pro">Visibilidad continua, sin pausas</PlanSubtitle>
             <ProgressBar $variant="pro">
               <ProgressFill $width="65%" $variant="pro" />
             </ProgressBar>
-            <ProgressLabel $variant="pro">3x más alcance</ProgressLabel>
+            <ProgressLabel $variant="pro">Nivel recomendado para mantener tu anuncio activo</ProgressLabel>
           </PlanCard>
 
           <PlanCard $variant="premium">
@@ -322,11 +322,11 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
               <Shield size={24} color="#6ee7b7" />
             </PlanIconWrapper>
             <PlanTitle $light>ProMax</PlanTitle>
-            <PlanSubtitle $variant="premium">Máxima visibilidad</PlanSubtitle>
+            <PlanSubtitle $variant="premium">Máxima exposición en búsquedas</PlanSubtitle>
             <ProgressBar $variant="premium">
               <ProgressFill $width="100%" $variant="premium" />
             </ProgressBar>
-            <ProgressLabel $variant="premium">5x más alcance</ProgressLabel>
+            <ProgressLabel $variant="premium">Incluye Pro + destacados para mayor visibilidad</ProgressLabel>
           </PlanCard>
         </PlansGrid>
 
