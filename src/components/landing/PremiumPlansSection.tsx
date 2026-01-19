@@ -321,7 +321,7 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
             <PlanIconWrapper $variant="premium">
               <Shield size={24} color="#6ee7b7" />
             </PlanIconWrapper>
-            <PlanTitle $light>Pro + Destacados</PlanTitle>
+            <PlanTitle $light>ProMax</PlanTitle>
             <PlanSubtitle $variant="premium">Máxima visibilidad</PlanSubtitle>
             <ProgressBar $variant="premium">
               <ProgressFill $width="100%" $variant="premium" />
@@ -335,7 +335,7 @@ const PremiumPlansSection = ({ cartUrl, whatsappUrl }: PremiumPlansSectionProps)
             <TableHeaderCell>Característica</TableHeaderCell>
             <TableHeaderCell>Gratis</TableHeaderCell>
             <TableHeaderCell $highlight>Pro</TableHeaderCell>
-            <TableHeaderCell $highlight>Pro + Destacados</TableHeaderCell>
+            <TableHeaderCell $highlight>ProMax</TableHeaderCell>
           </TableHeader>
           
           {features.map((feature, index) => (
