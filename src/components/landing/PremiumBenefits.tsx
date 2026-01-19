@@ -186,19 +186,42 @@ const BarLabel = styled.div<{ $bold?: boolean }>`
 `;
 
 const ProgressBar = styled.div`
-  height: 0.5rem;
+  height: 0.625rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
   overflow: hidden;
 `;
 
-const ProgressFill = styled.div<{ $width: string; $isVisible: boolean; $gradient?: boolean; $delay?: string }>`
+const SegmentedBar = styled.div<{ $isVisible: boolean }>`
+  display: flex;
+  gap: 0.375rem;
   height: 100%;
-  background: ${props => props.$gradient ? 'linear-gradient(to right, #34d399, #fbbf24)' : '#9ca3af'};
+  width: 100%;
+  padding: 0 0.125rem;
+  align-items: center;
+  opacity: ${props => props.$isVisible ? 1 : 0};
+  transition: opacity 0.5s ease-out;
+`;
+
+const BarSegment = styled.div<{ $delay: number; $isVisible: boolean }>`
+  flex: 1;
+  height: 0.375rem;
+  background: #9ca3af;
   border-radius: 9999px;
-  width: ${props => props.$isVisible ? props.$width : '0'};
+  opacity: ${props => props.$isVisible ? 1 : 0};
+  transform: ${props => props.$isVisible ? 'scaleX(1)' : 'scaleX(0)'};
+  transition: all 0.3s ease-out;
+  transition-delay: ${props => props.$delay}ms;
+`;
+
+const ContinuousBar = styled.div<{ $isVisible: boolean }>`
+  height: 100%;
+  background: linear-gradient(to right, #34d399, #10B981);
+  border-radius: 9999px;
+  width: ${props => props.$isVisible ? '100%' : '0'};
   transition: width 1s ease-out;
-  transition-delay: ${props => props.$delay || '0ms'};
+  transition-delay: 200ms;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
 `;
 
 const ComparisonResult = styled.p`
@@ -327,7 +350,11 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
                 <span>Visibilidad versión gratuita</span>
               </BarLabel>
               <ProgressBar>
-                <ProgressFill $width="20%" $isVisible={isVisible} />
+                <SegmentedBar $isVisible={isVisible}>
+                  {[...Array(8)].map((_, i) => (
+                    <BarSegment key={i} $delay={i * 80} $isVisible={isVisible} />
+                  ))}
+                </SegmentedBar>
               </ProgressBar>
             </div>
             <div>
@@ -335,7 +362,7 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
                 <span>Visibilidad Pro / ProMax</span>
               </BarLabel>
               <ProgressBar>
-                <ProgressFill $width="100%" $isVisible={isVisible} $gradient $delay="200ms" />
+                <ContinuousBar $isVisible={isVisible} />
               </ProgressBar>
             </div>
           </ComparisonBars>
