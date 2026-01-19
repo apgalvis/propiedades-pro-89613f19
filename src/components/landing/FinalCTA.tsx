@@ -163,7 +163,7 @@ const FinalCTA = ({ cartUrl, whatsappUrl }: FinalCTAProps) => {
             ¿Listo para pasar a <Highlight>visibilidad continua</Highlight>?
           </Title>
           <Subtitle>
-            Con el Plan Pro, tu anuncio no se pausa y mantiene visibilidad continua.
+            Con el Plan Pro, tu anuncio permanece activo y visible, facilitando la recepción continua de contactos.
           </Subtitle>
 
           <CTAWrapper>
