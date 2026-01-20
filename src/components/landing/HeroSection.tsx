@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MessageCircle, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 interface HeroSectionProps {
   cartUrl: string;
@@ -139,18 +139,18 @@ const PrimaryButton = styled.a`
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   min-height: 48px;
-  background: white;
-  color: #047857;
+  background: #10b981;
+  color: white;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
   transition: all 0.2s ease-out;
 
   &:hover {
-    background: #f3f4f6;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    background: #059669;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
     transform: translateY(-2px);
   }
 `;
@@ -162,8 +162,8 @@ const SecondaryButton = styled.a`
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   min-height: 48px;
-  background: rgba(5, 150, 105, 0.3);
-  border: 1px solid rgba(52, 211, 153, 0.5);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: white;
   font-weight: 600;
   font-size: 1rem;
@@ -172,7 +172,8 @@ const SecondaryButton = styled.a`
   transition: all 0.2s ease-out;
 
   &:hover {
-    background: rgba(5, 150, 105, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
   }
 `;
 
