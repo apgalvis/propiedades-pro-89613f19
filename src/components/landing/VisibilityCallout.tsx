@@ -189,14 +189,14 @@ const VisibilityCallout = () => {
               
               <ContentWrapper>
                 <Title>
-                  Si te ven más, <Highlight>te contactan más</Highlight>
+                  Control total sobre <Highlight>tu anuncio</Highlight>
                 </Title>
                 <Description>
-                  La visibilidad gratuita es temporal.
+                  Tu anuncio es siempre tuyo. Puedes editarlo, gestionarlo o cambiar de plan en cualquier momento, incluso durante el ciclo gratuito.
                 </Description>
                 <Badge>
                   <Zap size={18} />
-                  Mantén tu anuncio activo y visible con el nivel adecuado
+                  Flexibilidad total sin compromisos
                 </Badge>
               </ContentWrapper>
             </CardContent>
