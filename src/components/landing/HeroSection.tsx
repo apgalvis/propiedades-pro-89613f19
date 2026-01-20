@@ -139,19 +139,30 @@ const PrimaryButton = styled.a`
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   min-height: 48px;
-  background: #047857;
+  background: #059669;
   color: white;
   font-weight: 600;
   font-size: 1rem;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(5, 150, 105, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.2s ease-out;
 
   &:hover {
-    background: #065f46;
-    box-shadow: 0 4px 16px rgba(4, 120, 87, 0.35);
+    background: #10b981;
+    box-shadow: 
+      0 6px 20px rgba(0, 0, 0, 0.35),
+      0 4px 12px rgba(16, 185, 129, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;
 
