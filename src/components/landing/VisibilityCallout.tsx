@@ -194,10 +194,6 @@ const VisibilityCallout = () => {
                 <Description>
                   Tu anuncio es siempre tuyo. Puedes editarlo, gestionarlo o cambiar de plan en cualquier momento, incluso durante el ciclo gratuito.
                 </Description>
-                <Badge>
-                  <Zap size={18} />
-                  Flexibilidad total sin compromisos
-                </Badge>
               </ContentWrapper>
             </CardContent>
           </Card>
