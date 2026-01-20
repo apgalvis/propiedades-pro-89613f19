@@ -36,29 +36,39 @@ const steps = [
 ];
 
 const SectionWrapper = styled.section`
-  padding: 3rem 0;
+  padding: 4rem 0;
   background: linear-gradient(to bottom, #f9fafb, #ffffff);
+  
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 `;
 
 const Header = styled.div`
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.625rem;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
   
   @media (min-width: 768px) {
-    font-size: 1.875rem;
+    font-size: 2.25rem;
   }
 `;
 
@@ -70,7 +80,12 @@ const Subtitle = styled.p`
   color: #4b5563;
   max-width: 42rem;
   margin: 0 auto;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
 `;
 
 const StepsContainer = styled.div`
@@ -101,7 +116,7 @@ const ConnectingLine = styled.div<{ $isVisible: boolean }>`
     width: 100%;
     background: #10b981;
     height: ${props => props.$isVisible ? '100%' : '0'};
-    transition: height 1s ease-out;
+    transition: height 0.8s ease-out;
   }
 `;
 
@@ -121,23 +136,13 @@ const StepItem = styled.div<{ $index: number; $isVisible: boolean }>`
   align-items: center;
   gap: 1rem;
   opacity: ${props => props.$isVisible ? 1 : 0};
-  animation: ${props => props.$isVisible ? 'fadeIn 0.5s ease-out forwards' : 'none'};
-  animation-delay: ${props => props.$index * 150}ms;
+  transform: ${props => props.$isVisible ? 'translateY(0)' : 'translateY(10px)'};
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition-delay: ${props => Math.min(props.$index * 80, 320)}ms;
   
   @media (min-width: 768px) {
     gap: 2rem;
     flex-direction: ${props => props.$index % 2 === 0 ? 'row' : 'row-reverse'};
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 `;
 
@@ -151,11 +156,11 @@ const StepContent = styled.div<{ $index: number }>`
 
 const StepCard = styled.div`
   background: white;
-  padding: 1rem;
-  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 0.875rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   border: 1px solid #f3f4f6;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.2s ease-out;
   
   &:hover {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -163,23 +168,29 @@ const StepCard = styled.div`
 `;
 
 const StepTitle = styled.h3`
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #111827;
-  margin-bottom: 0.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const StepDescription = styled.p`
   color: #4b5563;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
 `;
 
 const IconContainer = styled.div<{ $color: string }>`
   position: relative;
   z-index: 10;
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background: ${props => props.$color};
   border-radius: 9999px;
   display: flex;
@@ -192,14 +203,14 @@ const StepNumber = styled.span`
   position: absolute;
   top: -0.25rem;
   right: -0.25rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.375rem;
+  height: 1.375rem;
   background: white;
   border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: #374151;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -216,9 +227,10 @@ const Spacer = styled.div`
 
 const Note = styled.p`
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: #6b7280;
-  margin-top: 2rem;
+  line-height: 1.5;
+  margin-top: 2.5rem;
   max-width: 36rem;
   margin-left: auto;
   margin-right: auto;

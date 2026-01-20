@@ -2,14 +2,18 @@ import styled from 'styled-components';
 import { Eye, TrendingUp, Zap } from "lucide-react";
 
 const SectionWrapper = styled.section`
-  padding: 2.5rem 0;
+  padding: 4rem 0;
   background: linear-gradient(to right, #ecfdf5, #ffffff, #ecfdf5);
+  
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 `;
 
 const CardWrapper = styled.div`
@@ -50,15 +54,16 @@ const DecorativeBottomLeft = styled.div`
 
 const CardContent = styled.div`
   position: relative;
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   
   @media (min-width: 768px) {
-    padding: 2rem;
+    padding: 2.5rem;
     flex-direction: row;
+    gap: 2rem;
   }
 `;
 
@@ -91,7 +96,7 @@ const PingRing = styled.div`
   inset: 0;
   border-radius: 1rem;
   border: 2px solid #34d399;
-  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
   opacity: 0.2;
   
   @keyframes ping {
@@ -127,9 +132,10 @@ const ContentWrapper = styled.div`
 
 const Title = styled.h3`
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #111827;
-  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.625rem;
   
   @media (min-width: 768px) {
     font-size: 1.5rem;
@@ -142,12 +148,9 @@ const Highlight = styled.span`
 
 const Description = styled.p`
   color: #4b5563;
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
-  
-  @media (min-width: 768px) {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 `;
 
 const Badge = styled.div`
@@ -156,9 +159,9 @@ const Badge = styled.div`
   gap: 0.5rem;
   background: #ecfdf5;
   color: #047857;
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem;
   border-radius: 9999px;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
 `;
 
@@ -192,7 +195,7 @@ const VisibilityCallout = () => {
                   La visibilidad gratuita es temporal.
                 </Description>
                 <Badge>
-                  <Zap size={16} />
+                  <Zap size={18} />
                   Mantén tu anuncio activo y visible con el nivel adecuado
                 </Badge>
               </ContentWrapper>

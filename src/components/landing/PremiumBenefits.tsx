@@ -17,10 +17,14 @@ const benefits = [
 ];
 
 const SectionWrapper = styled.section`
-  padding: 3.5rem 0;
+  padding: 4rem 0;
   background: linear-gradient(to bottom right, #064e3b, #065f46, #064e3b);
   position: relative;
   overflow: hidden;
+  
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
 `;
 
 const BackgroundPattern = styled.div`
@@ -31,23 +35,29 @@ const BackgroundPattern = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   position: relative;
   z-index: 10;
 `;
 
 const Header = styled.div`
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.625rem;
   font-weight: 700;
   color: white;
-  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
   
   @media (min-width: 768px) {
     font-size: 2.25rem;
@@ -62,59 +72,55 @@ const GradientText = styled.span`
 `;
 
 const Subtitle = styled.p`
-  color: rgba(209, 250, 229, 0.8);
+  color: rgba(209, 250, 229, 0.9);
   max-width: 42rem;
   margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
 `;
 
 const BenefitsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.25rem;
   max-width: 56rem;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 3rem;
   
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 4rem;
   }
 `;
 
 const BenefitCard = styled.div<{ $delay: number; $isVisible: boolean }>`
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
-  border-radius: 0.75rem;
-  padding: 1rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: ${props => props.$isVisible ? 1 : 0};
-  animation: ${props => props.$isVisible ? 'fadeIn 0.5s ease-out forwards' : 'none'};
-  animation-delay: ${props => props.$delay}ms;
-  transition: background 0.3s ease;
+  transform: ${props => props.$isVisible ? 'translateY(0)' : 'translateY(10px)'};
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, background 0.2s ease;
+  transition-delay: ${props => Math.min(props.$delay, 320)}ms;
 
   &:hover {
     background: rgba(255, 255, 255, 0.15);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 `;
 
 const BenefitIconWrapper = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   background: rgba(16, 185, 129, 0.3);
-  border-radius: 0.5rem;
+  border-radius: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 `;
 
 const BenefitTitleWrapper = styled.div`
@@ -122,62 +128,70 @@ const BenefitTitleWrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.375rem;
 `;
 
 const BenefitTitle = styled.h3`
-  font-size: 0.875rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: white;
+  line-height: 1.3;
 `;
 
 const GiftBadge = styled.span`
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: #064e3b;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  padding: 0.125rem 0.375rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 9999px;
 `;
 
 const BenefitDescription = styled.p`
-  color: rgba(209, 250, 229, 0.7);
-  font-size: 0.75rem;
+  color: rgba(209, 250, 229, 0.8);
+  font-size: 0.9375rem;
+  line-height: 1.5;
 `;
 
 const ComparisonCard = styled.div<{ $isVisible: boolean }>`
   max-width: 28rem;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 3rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  border-radius: 1rem;
+  padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: ${props => props.$isVisible ? 1 : 0};
-  animation: ${props => props.$isVisible ? 'fadeIn 0.5s ease-out forwards' : 'none'};
-  animation-delay: 300ms;
+  transform: ${props => props.$isVisible ? 'translateY(0)' : 'translateY(10px)'};
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition-delay: 200ms;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
 `;
 
 const ComparisonTitle = styled.h3`
   text-align: center;
   color: white;
   font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.3;
 `;
 
 const ComparisonBars = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 `;
 
 const BarLabel = styled.div<{ $bold?: boolean }>`
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: ${props => props.$bold ? 'white' : 'rgba(255, 255, 255, 0.8)'};
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.375rem;
   
   span:last-child {
     color: ${props => props.$bold ? '#fcd34d' : 'inherit'};
@@ -186,7 +200,7 @@ const BarLabel = styled.div<{ $bold?: boolean }>`
 `;
 
 const ProgressBar = styled.div`
-  height: 0.625rem;
+  height: 0.75rem;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
   overflow: hidden;
@@ -200,18 +214,18 @@ const SegmentedBar = styled.div<{ $isVisible: boolean }>`
   padding: 0 0.125rem;
   align-items: center;
   opacity: ${props => props.$isVisible ? 1 : 0};
-  transition: opacity 0.5s ease-out;
+  transition: opacity 0.3s ease-out;
 `;
 
 const BarSegment = styled.div<{ $delay: number; $isVisible: boolean }>`
   flex: 1;
-  height: 0.375rem;
+  height: 0.5rem;
   background: #9ca3af;
   border-radius: 9999px;
   opacity: ${props => props.$isVisible ? 1 : 0};
   transform: ${props => props.$isVisible ? 'scaleX(1)' : 'scaleX(0)'};
-  transition: all 0.3s ease-out;
-  transition-delay: ${props => props.$delay}ms;
+  transition: all 0.25s ease-out;
+  transition-delay: ${props => Math.min(props.$delay, 320)}ms;
 `;
 
 const ContinuousBar = styled.div<{ $isVisible: boolean }>`
@@ -219,35 +233,38 @@ const ContinuousBar = styled.div<{ $isVisible: boolean }>`
   background: linear-gradient(to right, #34d399, #10B981);
   border-radius: 9999px;
   width: ${props => props.$isVisible ? '100%' : '0'};
-  transition: width 1s ease-out;
-  transition-delay: 200ms;
+  transition: width 0.8s ease-out;
+  transition-delay: 150ms;
   box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
 `;
 
 const ComparisonResult = styled.p`
   text-align: center;
   color: #fcd34d;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.125rem;
-  margin-top: 1rem;
+  line-height: 1.4;
+  margin-top: 1.25rem;
 `;
 
 const Microcopy = styled.p`
   text-align: center;
   color: rgba(209, 250, 229, 0.6);
-  font-size: 0.625rem;
-  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-top: 0.875rem;
   font-style: italic;
 `;
 
 const CTAWrapper = styled.div<{ $isVisible: boolean }>`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   justify-content: center;
   opacity: ${props => props.$isVisible ? 1 : 0};
-  animation: ${props => props.$isVisible ? 'fadeIn 0.5s ease-out forwards' : 'none'};
-  animation-delay: 400ms;
+  transform: ${props => props.$isVisible ? 'translateY(0)' : 'translateY(10px)'};
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transition-delay: 300ms;
   
   @media (min-width: 640px) {
     flex-direction: row;
@@ -259,18 +276,21 @@ const GradientButton = styled.a`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
+  padding: 0.875rem 2rem;
+  min-height: 48px;
   background: #10B981;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 1rem;
   border-radius: 100px;
   text-decoration: none;
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-out;
 
   &:hover {
     background: #059669;
     box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
+    transform: translateY(-2px);
   }
 `;
 
@@ -279,14 +299,16 @@ const OutlineButton = styled.a`
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
+  padding: 0.875rem 2rem;
+  min-height: 48px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
   border-radius: 100px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease-out;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
@@ -329,9 +351,9 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
 
         <BenefitsGrid>
           {benefits.map((benefit, index) => (
-            <BenefitCard key={index} $delay={index * 50} $isVisible={isVisible}>
+            <BenefitCard key={index} $delay={index * 60} $isVisible={isVisible}>
               <BenefitIconWrapper>
-                <benefit.icon size={20} color="#6ee7b7" />
+                <benefit.icon size={22} color="#6ee7b7" />
               </BenefitIconWrapper>
               <BenefitTitleWrapper>
                 <BenefitTitle>{benefit.title}</BenefitTitle>
@@ -352,7 +374,7 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
               <ProgressBar>
                 <SegmentedBar $isVisible={isVisible}>
                   {[...Array(8)].map((_, i) => (
-                    <BarSegment key={i} $delay={i * 80} $isVisible={isVisible} />
+                    <BarSegment key={i} $delay={i * 60} $isVisible={isVisible} />
                   ))}
                 </SegmentedBar>
               </ProgressBar>
@@ -372,11 +394,11 @@ const PremiumBenefits = ({ cartUrl, whatsappUrl }: PremiumBenefitsProps) => {
 
         <CTAWrapper $isVisible={isVisible}>
           <GradientButton href={cartUrl} target="_blank" rel="noopener noreferrer">
-            <ShoppingCart size={16} />
+            <ShoppingCart size={18} />
             Cambiar a Pro
           </GradientButton>
           <OutlineButton href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
             Escríbenos por WhatsApp

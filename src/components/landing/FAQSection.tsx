@@ -121,29 +121,39 @@ const faqCategories = [
 ];
 
 const SectionWrapper = styled.section`
-  padding: 3rem 0;
+  padding: 4rem 0;
   background: white;
+  
+  @media (min-width: 768px) {
+    padding: 6rem 0;
+  }
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 `;
 
 const Header = styled.div`
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 3rem;
+  }
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.625rem;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
   
   @media (min-width: 768px) {
-    font-size: 1.875rem;
+    font-size: 2.25rem;
   }
 `;
 
@@ -155,28 +165,33 @@ const Subtitle = styled.p`
   color: #4b5563;
   max-width: 42rem;
   margin: 0 auto;
-  font-size: 0.875rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
 `;
 
 const CategoryTabs = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
+  gap: 0.625rem;
+  margin-bottom: 2.5rem;
 `;
 
 const CategoryTab = styled.button<{ $active: boolean; $color: string }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem;
   border-radius: 9999px;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-out;
   background: ${props => props.$active ? props.$color : '#f3f4f6'};
   color: ${props => props.$active ? 'white' : '#4b5563'};
   box-shadow: ${props => props.$active ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none'};
@@ -198,20 +213,20 @@ const AccordionWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 `;
 
 const AccordionItem = styled.div<{ $isOpen: boolean }>`
   background: ${props => props.$isOpen ? '#ecfdf5' : '#f9fafb'};
   border: 1px solid ${props => props.$isOpen ? '#a7f3d0' : '#f3f4f6'};
-  border-radius: 0.75rem;
+  border-radius: 0.875rem;
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-out;
 `;
 
 const AccordionTrigger = styled.button<{ $isOpen: boolean }>`
   width: 100%;
-  padding: 1rem 1.25rem;
+  padding: 1.125rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -219,10 +234,10 @@ const AccordionTrigger = styled.button<{ $isOpen: boolean }>`
   border: none;
   cursor: pointer;
   text-align: left;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   color: ${props => props.$isOpen ? '#047857' : '#111827'};
-  transition: color 0.2s ease;
+  transition: color 0.2s ease-out;
 
   &:hover {
     color: #047857;
@@ -232,19 +247,19 @@ const AccordionTrigger = styled.button<{ $isOpen: boolean }>`
 const ChevronIcon = styled.span<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease-out;
   transform: ${props => props.$isOpen ? 'rotate(180deg)' : 'rotate(0)'};
 `;
 
 const AccordionContent = styled.div<{ $isOpen: boolean }>`
   max-height: ${props => props.$isOpen ? '500px' : '0'};
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.25s ease-out;
 `;
 
 const AccordionContentInner = styled.div`
-  padding: 0 1.25rem 1rem;
-  font-size: 0.875rem;
+  padding: 0 1.5rem 1.25rem;
+  font-size: 1rem;
   color: #4b5563;
   line-height: 1.6;
 `;
@@ -252,8 +267,9 @@ const AccordionContentInner = styled.div`
 const HelpNote = styled.p`
   text-align: center;
   color: #6b7280;
-  font-size: 0.75rem;
-  margin-top: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 2.5rem;
   
   a {
     color: #059669;
@@ -313,7 +329,7 @@ const FAQSection = () => {
               >
                 {faq.question}
                 <ChevronIcon $isOpen={openItem === index}>
-                  <ChevronDown size={16} />
+                  <ChevronDown size={18} />
                 </ChevronIcon>
               </AccordionTrigger>
               <AccordionContent $isOpen={openItem === index}>

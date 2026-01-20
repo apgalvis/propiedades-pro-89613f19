@@ -36,29 +36,35 @@ const glossaryTerms = [
 ];
 
 const SectionWrapper = styled.section`
-  padding: 2.5rem 0;
+  padding: 4rem 0;
   background: #f9fafb;
+  
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
 `;
 
 const Container = styled.div`
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 `;
 
 const Header = styled.div`
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 `;
 
 const Title = styled.h2`
-  font-size: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.625rem;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 0.5rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
   
   @media (min-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
   }
 `;
 
@@ -75,7 +81,7 @@ const TermsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.875rem;
 `;
 
 const TermItem = styled.div`
@@ -90,16 +96,16 @@ const TermItem = styled.div`
 const TermBadge = styled.span`
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: 0.5rem;
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 9999px;
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: #374151;
   cursor: help;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-out;
 
   &:hover {
     border-color: #6ee7b7;
@@ -119,16 +125,17 @@ const Tooltip = styled.div`
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem 1rem;
   background: #111827;
   color: white;
-  font-size: 0.75rem;
-  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.625rem;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease;
-  width: 14rem;
+  transition: all 0.2s ease-out;
+  width: 15rem;
   text-align: center;
   z-index: 10;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -139,7 +146,7 @@ const Tooltip = styled.div`
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    border: 4px solid transparent;
+    border: 5px solid transparent;
     border-top-color: #111827;
   }
 `;
